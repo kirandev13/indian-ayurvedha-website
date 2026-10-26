@@ -1,0 +1,12 @@
+# Dependencies & Builds
+node_modules/
+.vercel/
+
+# Temporary Audit & Test Artifacts
+audit-*.png
+preview-*.png
+screenshots/
+
+# OS Metadata
+.DS_Store
+Thumbs.db

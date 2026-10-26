@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lovely-jelly-e3127f.netlify.app/sitemap.xml
+Sitemap: https://indianayurvedha.com/sitemap.xml

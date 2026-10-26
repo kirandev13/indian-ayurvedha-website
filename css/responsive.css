@@ -1,0 +1,719 @@
+/* ==========================================================================
+   Responsive Breakpoints & Touch Optimization
+   Strictly Mobile-First & No Horizontal Scroll
+   ========================================================================== */
+
+/* Universal mobile viewport safety */
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Large Tablets & Small Laptops (<= 1080px) */
+@media (max-width: 1080px) {
+  .treatments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-grid,
+  .trust-bar-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .trust-item-box:nth-child(2) {
+    border-right: none;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Tablets (<= 920px) */
+@media (max-width: 920px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-pill {
+    padding: 8px 16px;
+  }
+
+  .about-grid,
+  .guru-grid,
+  .medicines-grid,
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .timeline-grid,
+  .process-grid,
+  .gallery-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .about-visual-main img {
+    height: 380px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .about-badge-card {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+
+  .guru-frame {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .guru-img {
+    height: 380px;
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .photo-identity-bar {
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-whatsapp {
+    bottom: 84px; /* Room above mobile bottom action bar */
+    right: 18px;
+  }
+
+  .mobile-bottom-bar {
+    display: block;
+  }
+
+  body {
+    padding-bottom: 74px; /* Space for sticky bottom bar */
+  }
+}
+
+/* Mobile Devices (<= 640px) - Handsets (Galaxy A-series, iPhones, etc.) */
+@media (max-width: 640px) {
+  /* Prevent any element from exceeding viewport */
+  * {
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden !important;
+    position: relative;
+    width: 100%;
+  }
+
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .top-bar {
+    display: none; /* Keep mobile viewport clean */
+  }
+
+  /* Header & Navigation */
+  .header-wrapper {
+    top: 8px;
+    padding: 0 10px;
+  }
+
+  .nav-pill {
+    padding: 6px 14px;
+    gap: 8px;
+  }
+
+  .nav-logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-brand-name {
+    font-size: 0.9375rem;
+    line-height: 1.1;
+  }
+
+  .nav-brand-sub {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-actions .btn {
+    display: none; /* Handled by mobile bottom action bar */
+  }
+
+  .mobile-menu-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Buttons on Mobile */
+  .btn {
+    white-space: normal !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    padding: 13px 20px;
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 110px 0 54px !important;
+    min-height: auto !important;
+    margin-top: -55px;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem !important;
+    padding: 6px 14px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 16px !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-desc {
+    font-size: 0.9375rem !important;
+    line-height: 1.62 !important;
+    margin-bottom: 24px !important;
+    color: rgba(250, 247, 242, 0.92) !important;
+  }
+
+  .hero-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .hero-ctas .btn {
+    width: 100% !important;
+    padding: 14px 20px !important;
+  }
+
+  .hero-trust-indicators {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding-top: 18px !important;
+    width: 100% !important;
+  }
+
+  .trust-item {
+    font-size: 0.8125rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Section Typography */
+  .section-tag {
+    font-size: 0.7rem !important;
+    padding: 4px 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.45rem, 5.5vw, 1.85rem) !important;
+    line-height: 1.26 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 28px !important;
+  }
+
+  /* Trust Bar / Credibility Strip */
+  .trust-strip {
+    margin-top: -24px !important;
+    padding: 0 12px !important;
+  }
+
+  .trust-bar-container {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 18px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .trust-item-box {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2) !important;
+    padding-bottom: 12px !important;
+    padding-right: 0 !important;
+  }
+
+  .trust-item-box:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  .trust-item-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 10px !important;
+  }
+
+  .trust-item-title {
+    font-size: 0.9rem !important;
+  }
+
+  .trust-item-desc {
+    font-size: 0.75rem !important;
+  }
+
+  /* Founder & Guru Sections */
+  .about-section,
+  .guru-spotlight {
+    padding: 70px 0 !important;
+  }
+
+  .about-visual-main {
+    border-width: 4px !important;
+    border-radius: 18px !important;
+  }
+
+  .about-visual-main img {
+    height: 320px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .photo-identity-bar {
+    margin-top: 12px !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    width: 100% !important;
+  }
+
+  .photo-person-name {
+    font-size: 1.15rem !important;
+    line-height: 1.28 !important;
+    margin-bottom: 3px !important;
+  }
+
+  .photo-person-role {
+    font-size: 0.78rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .photo-person-badge {
+    font-size: 0.6875rem !important;
+    padding: 3px 10px !important;
+    line-height: 1.3 !important;
+  }
+
+  .lead-text {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .body-text {
+    font-size: 0.875rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .founder-quote-box {
+    padding: 16px 18px 16px 24px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .founder-quote-box::before {
+    font-size: 2.8rem !important;
+    top: 6px !important;
+    left: 6px !important;
+  }
+
+  .founder-quote-text {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .guru-frame {
+    width: 100% !important;
+    padding: 8px !important;
+    border-radius: 20px !important;
+  }
+
+  .guru-img {
+    height: 340px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+  }
+
+  .guru-lead {
+    font-size: 1rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  .guru-desc {
+    font-size: 0.875rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .lineage-highlights {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .lineage-item {
+    padding: 14px 16px !important;
+  }
+
+  /* Treatments Grid */
+  .treatments-section {
+    padding: 70px 0 !important;
+  }
+
+  .treatments-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .treatment-img-wrap {
+    height: 190px !important;
+  }
+
+  .treatment-body {
+    padding: 20px 18px 16px !important;
+  }
+
+  .treatment-title {
+    font-size: 1.15rem !important;
+  }
+
+  .treatment-sanskrit {
+    font-size: 0.78rem !important;
+  }
+
+  .treatment-text {
+    font-size: 0.84rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Behind the Medicine */
+  .medicines-banner {
+    padding: 70px 0 !important;
+  }
+
+  .medicines-gallery-mosaic {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .mosaic-img-1,
+  .mosaic-img-2 {
+    height: 160px !important;
+    border-radius: 14px !important;
+    border-width: 3px !important;
+  }
+
+  .medicine-points {
+    gap: 16px !important;
+    margin-top: 20px !important;
+  }
+
+  .point-number {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.875rem !important;
+  }
+
+  .point-title {
+    font-size: 0.9375rem !important;
+  }
+
+  .point-desc {
+    font-size: 0.8125rem !important;
+  }
+
+  /* Packages */
+  .packages-section {
+    padding: 70px 0 !important;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .package-card {
+    padding: 24px 20px !important;
+    border-radius: 18px !important;
+  }
+
+  .package-name {
+    font-size: 1.2rem !important;
+  }
+
+  .package-desc {
+    font-size: 0.84rem !important;
+  }
+
+  /* Video Showcase */
+  .video-section {
+    padding: 70px 0 !important;
+  }
+
+  .video-showcase-card {
+    border-radius: 16px !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .video-play-btn {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .video-play-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .video-caption-bar {
+    padding: 12px 14px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .video-caption-title {
+    font-size: 0.875rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .video-caption-sub {
+    font-size: 0.72rem !important;
+  }
+
+  .video-badge {
+    font-size: 0.6875rem !important;
+    padding: 4px 10px !important;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: 70px 0 !important;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .testimonial-card {
+    padding: 24px 20px !important;
+    border-radius: 18px !important;
+  }
+
+  .testimonial-quote {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 70px 0 !important;
+  }
+
+  .faq-accordion {
+    gap: 12px !important;
+  }
+
+  .faq-question {
+    padding: 16px 18px !important;
+    font-size: 0.95rem !important;
+    gap: 12px !important;
+  }
+
+  .faq-answer {
+    padding: 0 18px !important;
+  }
+
+  .faq-item.active .faq-answer {
+    padding-bottom: 16px !important;
+  }
+
+  .faq-answer p {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Contact & Map */
+  .contact-section {
+    padding: 70px 0 50px !important;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .contact-info-panel {
+    padding: 28px 20px !important;
+    border-radius: 18px !important;
+  }
+
+  .contact-info-title {
+    font-size: 1.5rem !important;
+  }
+
+  .contact-info-subtitle {
+    font-size: 0.875rem !important;
+    margin-bottom: 24px !important;
+  }
+
+  .contact-detail-item {
+    gap: 12px !important;
+  }
+
+  .contact-detail-value {
+    font-size: 0.875rem !important;
+  }
+
+  .contact-form-card {
+    padding: 24px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .form-title {
+    font-size: 1.45rem !important;
+  }
+
+  .form-subtitle {
+    font-size: 0.84rem !important;
+    margin-bottom: 20px !important;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .form-group.full {
+    grid-column: span 1 !important;
+  }
+
+  .form-label {
+    font-size: 0.8125rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px !important; /* Prevents auto-zoom in mobile browsers */
+    padding: 12px 14px !important;
+  }
+
+  .form-submit-btn {
+    padding: 14px 18px !important;
+    font-size: 0.9375rem !important;
+  }
+
+  .form-trust-note {
+    font-size: 0.72rem !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 50px 0 24px !important;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 8px !important;
+  }
+
+  /* Mobile Bottom Action Bar */
+  .mobile-bottom-bar {
+    padding: 8px 12px !important;
+  }
+
+  .mobile-bottom-grid {
+    grid-template-columns: 1fr 1fr 1.25fr !important;
+    gap: 8px !important;
+  }
+
+  .mobile-bottom-btn {
+    padding: 8px 10px !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Subpage Grids & Hero Overrides */
+  .hero-bg-img {
+    transform: none !important;
+    max-width: 100% !important;
+  }
+
+  .timeline-grid,
+  .process-grid,
+  .gallery-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .gallery-card-item {
+    height: 220px !important;
+  }
+
+  .transit-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
