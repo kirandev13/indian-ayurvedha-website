@@ -103,8 +103,7 @@ html, body {
   }
 
   .floating-whatsapp {
-    bottom: 84px; /* Room above mobile bottom action bar */
-    right: 18px;
+    display: none !important; /* Hide floating circular button on mobile/tablets where sticky bottom action bar is active */
   }
 
   .mobile-bottom-bar {
