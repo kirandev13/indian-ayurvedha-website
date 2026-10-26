@@ -156,6 +156,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Condition Quick-Chips: auto-select condition and open consultation
+  document.querySelectorAll('.condition-chip').forEach(chip => {
+    chip.addEventListener('click', (e) => {
+      e.preventDefault();
+      const condition = chip.getAttribute('data-condition');
+      if (condition) {
+        const hpSelect = document.getElementById('hp-condition');
+        const modalSelect = document.getElementById('modal-condition');
+        if (hpSelect) hpSelect.value = condition;
+        if (modalSelect) modalSelect.value = condition;
+      }
+      openModal(consultModal);
+    });
+  });
+
   // Global Escape Key Listener for Modals & Mobile Drawer
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' || e.key === 'Esc') {
