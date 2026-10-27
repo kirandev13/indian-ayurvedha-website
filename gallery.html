@@ -139,44 +139,179 @@
   </section>
 
   <!-- Photo Grid -->
-  <section style="padding: 90px 0; background: var(--cream-bg);">
+  <section style="padding: 80px 0; background: var(--cream-bg);">
     <div class="container">
-      <div class="gallery-cards-grid">
 
-        <div class="gallery-card-item">
-          <img src="assets/images/hero-uzhichil.webp" alt="Authentic Kalari Uzhichil" width="400" height="280" loading="lazy">
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filters" role="tablist" aria-label="Gallery Categories">
+        <button type="button" class="gallery-filter-btn active" data-filter="all">All Visuals (18)</button>
+        <button type="button" class="gallery-filter-btn" data-filter="chikilsa">Chikilsa & Marma (12)</button>
+        <button type="button" class="gallery-filter-btn" data-filter="medicine">Oils & Medicines (1)</button>
+        <button type="button" class="gallery-filter-btn" data-filter="lineage">Lineage & Masters (5)</button>
+      </div>
+
+      <div class="gallery-cards-grid" id="galleryGrid">
+
+        <!-- 1. Authentic Kizhi Herbal Potli -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/gallery-chikilsa-kizhi.webp" alt="Authentic Kizhi Herbal Compress Chikilsa" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Chikilsa & Marma</span>
+            <h3 class="gallery-card-title">Authentic Kizhi Herbal Compress Chikilsa</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/kalari-massage-1.jpg" alt="Traditional Back Massage" width="400" height="280" loading="lazy">
+        <!-- 2. Spinal Marma Alignment on Wooden Droni -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/gallery-droni-marma.webp" alt="Spinal Marma Alignment on Medicinal Wood Droni" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Spine & Disc Care</span>
+            <h3 class="gallery-card-title">Spinal Marma Alignment on Wooden Droni</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/kalari-massage-2.jpg" alt="Nilavilakku and Shoulder Massage" width="400" height="280" loading="lazy">
+        <!-- 3. Lower Lumbar Spine Realignment -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/gallery-marma-lumbar.webp" alt="Lower Lumbar Spine Realignment Technique" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Marma Manipulation</span>
+            <h3 class="gallery-card-title">Lower Lumbar Spine Realignment</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/kalari-massage-3.jpg" alt="Spinal Marma Pressure Technique" width="400" height="280" loading="lazy">
+        <!-- 4. Cervical Marma & Neck Realignment -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/gallery-marma-cervical.webp" alt="Cervical Marma & Neck Realignment Protocol" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Spondylitis Protocol</span>
+            <h3 class="gallery-card-title">Cervical Marma & Neck Realignment</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/treatment-marma.webp" alt="107 Marma Points Therapy" width="400" height="280" loading="lazy">
+        <!-- 5. Deep Thoracic Spinal Therapy -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/gallery-marma-thoracic.webp" alt="Deep Thoracic & Spinal Line Therapy" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Neuro-Muscular Care</span>
+            <h3 class="gallery-card-title">Deep Thoracic Spinal Line Therapy</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/treatment-spondylitis.webp" alt="Greeva Vasti for Spondylitis" width="400" height="280" loading="lazy">
+        <!-- 6. Authentic Kalari Uzhichil -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/hero-uzhichil.webp" alt="Authentic Kalari Uzhichil Full Body Therapy" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Kalari Uzhichil</span>
+            <h3 class="gallery-card-title">Authentic Kalari Full Body Uzhichil</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/kalari-thali.jpg" alt="Pure Botanical Ingredients in Bronze Bowls" width="400" height="280" loading="lazy">
+        <!-- 7. Traditional Back Massage -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/kalari-massage-1.jpg" alt="Traditional Back Massage with Handcrafted Oils" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Therapeutic Massage</span>
+            <h3 class="gallery-card-title">Traditional Spinal Oil Massage</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/treatment-joint-pain.webp" alt="Therapeutic Oil Pouring" width="400" height="280" loading="lazy">
+        <!-- 8. Nilavilakku & Shoulder Massage -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/kalari-massage-2.jpg" alt="Nilavilakku and Shoulder Marma Therapy" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Traditional Protocol</span>
+            <h3 class="gallery-card-title">Sacred Nilavilakku Shoulder Therapy</h3>
+          </div>
         </div>
 
-        <div class="gallery-card-item">
-          <img src="assets/images/treatment-weightloss.webp" alt="Herbal Scrub and Detox" width="400" height="280" loading="lazy">
+        <!-- 9. Spinal Marma Pressure Technique -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/kalari-massage-3.jpg" alt="Spinal Marma Pressure Technique" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">107 Marma Points</span>
+            <h3 class="gallery-card-title">Spinal Marma Pressure Technique</h3>
+          </div>
+        </div>
+
+        <!-- 10. 107 Marma Points Therapy -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/treatment-marma.webp" alt="107 Marma Points Holistic Healing" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Vital Energy Flow</span>
+            <h3 class="gallery-card-title">107 Marma Vital Energy Realignment</h3>
+          </div>
+        </div>
+
+        <!-- 11. Greeva Vasti for Spondylitis -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/treatment-spondylitis.webp" alt="Greeva Vasti Herbal Oil Reservoir for Spondylitis" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Targeted Relief</span>
+            <h3 class="gallery-card-title">Greeva Vasti for Cervical Relief</h3>
+          </div>
+        </div>
+
+        <!-- 12. Therapeutic Oil Pouring for Joint Pain -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/treatment-joint-pain.webp" alt="Therapeutic Medicated Oil Pouring for Joint Pain" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Joint & Knee Care</span>
+            <h3 class="gallery-card-title">Therapeutic Medicated Oil Pouring</h3>
+          </div>
+        </div>
+
+        <!-- 13. Herbal Scrub & Detox -->
+        <div class="gallery-card-item" data-category="chikilsa">
+          <img src="assets/images/treatment-weightloss.webp" alt="Herbal Scrub and Metabolic Detox" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Metabolic Chikitsa</span>
+            <h3 class="gallery-card-title">Herbal Scrub & Cellular Detox</h3>
+          </div>
+        </div>
+
+        <!-- 14. Pure Botanical Ingredients in Bronze Bowls -->
+        <div class="gallery-card-item" data-category="medicine">
+          <img src="assets/images/kalari-thali.jpg" alt="Pure Botanical Ingredients in Bronze Urulis" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">100% In-House</span>
+            <h3 class="gallery-card-title">Handmade Herbal Formulations in Urulis</h3>
+          </div>
+        </div>
+
+        <!-- 15. Founder Sajith Kalariyil -->
+        <div class="gallery-card-item" data-category="lineage">
+          <img src="assets/images/founder-sajith.webp" alt="Sajith Kalariyil - Founder & Chief Vaidya in Traditional Kasavu" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Founder & Chief Vaidya</span>
+            <h3 class="gallery-card-title">Sajith Kalariyil in Traditional Kasavu</h3>
+          </div>
+        </div>
+
+        <!-- 16. Sri Satguru Hanumandas Swamiji -->
+        <div class="gallery-card-item" data-category="lineage">
+          <img src="assets/images/gallery-guru-satguru.webp" alt="Sri Satguru Dharmanandha Swaroopa Hanumandas Swamiji" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Living Master</span>
+            <h3 class="gallery-card-title">Sri Satguru Hanumandas Swamiji</h3>
+          </div>
+        </div>
+
+        <!-- 17. Kalari Gurukula Living Master -->
+        <div class="gallery-card-item" data-category="lineage">
+          <img src="assets/images/gallery-kalari-master.webp" alt="Kalari Gurukula Master in Traditional Kettukettu" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Sacred Heritage</span>
+            <h3 class="gallery-card-title">Kalari Gurukula Living Tradition</h3>
+          </div>
+        </div>
+
+        <!-- 18. Kalari Marma Specialist & General Manager -->
+        <div class="gallery-card-item" data-category="lineage">
+          <img src="assets/images/gallery-marma-specialist.webp" alt="Kalari Marma Treatment Specialist and General Manager" width="400" height="320" loading="lazy">
+          <div class="gallery-card-overlay">
+            <span class="gallery-card-tag">Clinical Leadership</span>
+            <h3 class="gallery-card-title">Kalari Marma Specialist & GM</h3>
+          </div>
         </div>
 
       </div>

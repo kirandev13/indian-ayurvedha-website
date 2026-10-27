@@ -2225,12 +2225,54 @@ h1, h2, h3, h4, h5, h6 {
   gap: 24px;
 }
 
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.gallery-filter-btn {
+  background: #fff;
+  border: 1px solid var(--forest-border);
+  color: var(--forest-dark);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.gallery-filter-btn:hover {
+  border-color: var(--gold-base);
+  color: var(--gold-dark);
+}
+
+.gallery-filter-btn.active {
+  background: var(--forest-dark);
+  color: #fff;
+  border-color: var(--forest-dark);
+  box-shadow: 0 4px 14px rgba(16, 36, 25, 0.2);
+}
+
 .gallery-card-item {
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--forest-border);
   height: 320px;
+  background: var(--forest-dark);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gallery-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .gallery-card-item img {
@@ -2241,7 +2283,41 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-card-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.gallery-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(16, 36, 25, 0.92) 0%, rgba(16, 36, 25, 0.35) 45%, transparent 75%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  pointer-events: none;
+  transition: background var(--transition-fast);
+}
+
+.gallery-card-item:hover .gallery-card-overlay {
+  background: linear-gradient(to top, rgba(16, 36, 25, 0.96) 0%, rgba(16, 36, 25, 0.5) 55%, transparent 85%);
+}
+
+.gallery-card-tag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.gallery-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  color: #FAF7F2;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .transit-grid {
