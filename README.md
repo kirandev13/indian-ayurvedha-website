@@ -61,7 +61,7 @@ npx serve .
 
 ## 📍 Clinic Information
 
-- **Address**: RWRA - 17, Ranni Lane, Peroorkada, Thiruvananthapuram, Kerala — 695005, India
+- **Address**: WNRA-7A, Winners nagar, Near vazhayila church, Vazhayila, Peroorkada, Trivandrum - 695005, Kerala, India
 - **Phone / WhatsApp**: +91 9188278888
 - **Email**: navajeevanamvaidyamadam@gmail.com
 - **Consultation Hours**:
