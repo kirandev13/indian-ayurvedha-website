@@ -1625,6 +1625,120 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   YouTube Dual Video Showcase & Shorts Embed
+   ========================================================================== */
+.video-showcase-grid {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.short-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.short-frame {
+  width: 100%;
+  max-width: 330px;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid rgba(197, 160, 89, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(197, 160, 89, 0.12);
+  background: #000;
+  position: relative;
+}
+
+.short-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.short-caption-tag {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.short-caption-tag:hover {
+  color: #fff;
+}
+
+.video-channel-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.channel-info-card {
+  background: rgba(16, 36, 25, 0.75);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 20px;
+  padding: 24px 28px;
+  text-align: left;
+  backdrop-filter: blur(10px);
+}
+
+.channel-info-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.channel-info-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(250, 247, 242, 0.82);
+  margin-bottom: 16px;
+}
+
+.channel-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.channel-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: rgba(250, 247, 242, 0.9);
+}
+
+.channel-feature-icon {
+  color: var(--gold-light);
+  font-weight: bold;
+}
+
+.channel-action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ==========================================================================
    Testimonials Section (Elevated Verified Badges)
    ========================================================================== */
 .testimonials-section {

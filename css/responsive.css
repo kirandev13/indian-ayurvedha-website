@@ -612,6 +612,36 @@ html, body {
     padding: 4px 10px !important;
   }
 
+  .video-showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .short-container-wrapper {
+    margin: 0 auto !important;
+    max-width: 320px !important;
+  }
+
+  .short-frame {
+    max-width: 320px !important;
+    border-radius: 18px !important;
+  }
+
+  .channel-info-card {
+    padding: 20px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .channel-action-btns {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .channel-action-btns .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
   /* Testimonials */
   .testimonials-section {
     padding: 70px 0 !important;
