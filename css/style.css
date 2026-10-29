@@ -61,11 +61,25 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   max-width: 100vw;
   width: 100%;
+}
+
+[id] {
+  scroll-margin-top: 88px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 96px;
+  }
+  [id] {
+    scroll-margin-top: 96px;
+  }
 }
 
 body {
@@ -448,6 +462,46 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   white-space: nowrap;
   margin-top: 2px;
+}
+
+/* Header Wordmark Since 2012 (Mobile Base) */
+.brand-sub-desktop-since {
+  display: none;
+}
+
+.nav-brand-mobile-since {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  font-weight: 600;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.nav-brand-mobile-since::before,
+.nav-brand-mobile-since::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.2), var(--gold-primary));
+}
+
+.nav-brand-mobile-since::after {
+  background: linear-gradient(90deg, var(--gold-primary), rgba(197, 160, 89, 0.2));
+}
+
+@media (min-width: 1024px) {
+  .nav-brand-mobile-since {
+    display: none !important;
+  }
+  .brand-sub-desktop-since {
+    display: inline !important;
+  }
 }
 
 .nav-menu {
@@ -2495,4 +2549,138 @@ h1, h2, h3, h4, h5, h6 {
   gap: 12px;
   font-size: 0.8125rem;
   color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Footer Since 2012 Pill (Mobile-First Base: Centered, Desktop: Left)
+   ========================================================================== */
+.footer-since-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: -12px;
+  margin-bottom: 24px;
+}
+
+.footer-since-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 4px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 641px) {
+  .footer-since-wrap {
+    justify-content: flex-start;
+  }
+}
+
+/* ==========================================================================
+   About Page: Founder Journey Block & Vertical Timeline (Mobile First)
+   ========================================================================== */
+.founder-journey-card {
+  margin: 28px 0;
+  padding: 20px 18px;
+  background: rgba(235, 242, 237, 0.7);
+  border: 1px solid var(--forest-border);
+  border-left: 4px solid var(--gold-primary);
+  border-radius: 18px;
+}
+
+@media (min-width: 768px) {
+  .founder-journey-card {
+    padding: 24px 26px;
+  }
+}
+
+.founder-timeline {
+  position: relative;
+  padding-left: 24px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.founder-timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 8px;
+  left: 5px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+}
+
+.founder-timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px var(--gold-dark);
+}
+
+.founder-timeline-year {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.founder-timeline-text {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin: 3px 0 0 0;
+  word-break: break-word;
+}
+
+/* Scroll Animation (Fade & Slide In) */
+.fade-in-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Sticky Photo Card on Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .founder-visual-sticky {
+    position: sticky;
+    top: calc(96px + 24px);
+    align-self: start;
+  }
 }

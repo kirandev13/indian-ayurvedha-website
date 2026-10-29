@@ -170,6 +170,11 @@ html, body {
     letter-spacing: 0.1em !important;
   }
 
+  .nav-brand-mobile-since {
+    font-size: 9px !important;
+    letter-spacing: 0.16em !important;
+  }
+
   .nav-actions .btn {
     display: none; /* Handled by mobile bottom action bar */
   }
@@ -778,6 +783,22 @@ html, body {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
     padding-bottom: 40px !important;
+  }
+
+  .site-footer .footer-top > div:first-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-footer .footer-brand-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-since-wrap {
+    justify-content: center !important;
   }
 
   .footer-bottom {

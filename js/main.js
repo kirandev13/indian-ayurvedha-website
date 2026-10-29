@@ -181,4 +181,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Dynamic Current Year for Footer Copyright
+  const currentYear = new Date().getFullYear();
+  document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = currentYear;
+  });
+
+  // Fade/Slide In on Scroll Animation for Blocks
+  const animatedElements = document.querySelectorAll('.fade-in-scroll');
+  if ('IntersectionObserver' in window && animatedElements.length > 0) {
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    animatedElements.forEach(el => scrollObserver.observe(el));
+  } else {
+    animatedElements.forEach(el => el.classList.add('is-visible'));
+  }
 });
