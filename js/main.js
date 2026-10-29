@@ -111,9 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Modals: User-Initiated & Exit Intent
-  const consultModal = document.getElementById('consultModal');
-  const consultModalClose = document.getElementById('consultModalClose');
+  // 4. Modals: Exit Intent (Polite & Dismissible)
   const exitIntentModal = document.getElementById('exitIntentModal');
   const exitIntentClose = document.getElementById('exitIntentClose');
   let lastActiveElementBeforeModal = null;
@@ -138,145 +136,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  consultModalClose?.addEventListener('click', () => closeModal(consultModal));
   exitIntentClose?.addEventListener('click', () => closeModal(exitIntentModal));
 
-  // Close modals when clicking backdrop
-  [consultModal, exitIntentModal].forEach(modal => {
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal(modal);
-    });
-  });
-
-  // Trigger modal from any element with class .trigger-consult-modal
-  document.querySelectorAll('.trigger-consult-modal').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(consultModal);
-    });
-  });
-
-  // Condition Quick-Chips: auto-select condition and open consultation
-  document.querySelectorAll('.condition-chip').forEach(chip => {
-    chip.addEventListener('click', (e) => {
-      e.preventDefault();
-      const condition = chip.getAttribute('data-condition');
-      if (condition) {
-        const hpSelect = document.getElementById('hp-condition');
-        const modalSelect = document.getElementById('modal-condition');
-        if (hpSelect) hpSelect.value = condition;
-        if (modalSelect) modalSelect.value = condition;
-      }
-      openModal(consultModal);
-    });
+  // Close modal when clicking backdrop
+  exitIntentModal?.addEventListener('click', (e) => {
+    if (e.target === exitIntentModal) closeModal(exitIntentModal);
   });
 
   // Global Escape Key Listener for Modals & Mobile Drawer
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' || e.key === 'Esc') {
-      if (consultModal?.classList.contains('open')) closeModal(consultModal);
       if (exitIntentModal?.classList.contains('open')) closeModal(exitIntentModal);
       if (mobileDrawer?.classList.contains('open')) closeDrawer();
     }
   });
 
-  // Polite Exit Intent Trigger (Desktop only, fires only once per session, never interrupts active form filling)
+  // Polite Exit Intent Trigger (Desktop only, fires only once per session)
   let exitIntentFired = sessionStorage.getItem('navajeevanam_exit_modal_shown');
   document.addEventListener('mouseleave', (e) => {
     if (exitIntentFired) return;
-    // Don't show if user is actively filling an input
-    const isInteractingWithForm = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
-    if (!isInteractingWithForm && e.clientY <= 10 && window.innerWidth > 920) {
+    if (e.clientY <= 10 && window.innerWidth > 920) {
       exitIntentFired = true;
       sessionStorage.setItem('navajeevanam_exit_modal_shown', 'true');
       openModal(exitIntentModal);
     }
   });
-
-  // 5. Booking Form WhatsApp Sync & Accessible Validation
-  const bookingForms = document.querySelectorAll('.consultation-form');
-  bookingForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const nameInput = form.querySelector('[name="name"]');
-      const phoneInput = form.querySelector('[name="phone"]');
-      const conditionInput = form.querySelector('[name="condition"]');
-      const messageInput = form.querySelector('[name="message"]');
-
-      const name = nameInput?.value.trim() || '';
-      const phone = phoneInput?.value.trim() || '';
-      const condition = conditionInput?.value.trim() || 'General Consultation';
-      const message = messageInput?.value.trim() || '';
-
-      // Clear any prior errors
-      form.querySelectorAll('.form-error-msg').forEach(err => err.remove());
-
-      // Validation: Name must have at least 2 chars
-      if (name.length < 2) {
-        showFieldError(nameInput, 'Please enter your full name (at least 2 characters).');
-        nameInput?.focus();
-        return;
-      }
-
-      // Validation: Phone must have at least 10 digits
-      const digitsOnly = phone.replace(/[^0-9]/g, '');
-      if (digitsOnly.length < 10) {
-        showFieldError(phoneInput, 'Please enter a valid 10-digit phone or WhatsApp number.');
-        phoneInput?.focus();
-        return;
-      }
-
-      // Construct draft WhatsApp text with clear healthcare guidance
-      const waText = encodeURIComponent(
-        `*New Consultation Enquiry - Navajeevanam Kalari Vaidyamadam*\n\n` +
-        `*Patient Name:* ${name}\n` +
-        `*Contact Phone:* ${phone}\n` +
-        `*Condition / Treatment Interest:* ${condition}\n` +
-        `*Message / Notes:* ${message || 'Seeking doctor consultation and treatment guidance'}\n\n` +
-        `_(Please tap Send to deliver this message directly to the clinic)_`
-      );
-
-      // Open WhatsApp web or app with prepared draft
-      const waUrl = `https://wa.me/919188278888?text=${waText}`;
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
-
-      // Display transparent, reassuring confirmation explaining WhatsApp handoff
-      form.innerHTML = `
-        <div style="text-align: center; padding: 32px 16px; background: #FAF7F2; border-radius: 16px; border: 1px solid var(--forest-border);">
-          <div style="width: 54px; height: 54px; background: #EBF2ED; color: #1C3829; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">✓</div>
-          <h3 style="font-family: var(--font-serif); color: var(--forest-dark); font-size: 1.3rem; margin-bottom: 8px;">WhatsApp Draft Prepared</h3>
-          <p style="color: var(--text-body); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 14px;">
-            Thank you, <strong>${escapeHtml(name)}</strong>. We have opened WhatsApp on your device with your drafted details.
-          </p>
-          <p style="color: var(--text-muted); font-size: 0.84rem; line-height: 1.5; margin-bottom: 20px;">
-            <strong>Next Step:</strong> Please review and tap <strong>Send</strong> inside WhatsApp to deliver your enquiry directly to our Vaidyar. Our clinic team reviews and responds to messages during consultation hours.
-          </p>
-          <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex;">
-            <span>Re-open WhatsApp Chat</span>
-          </a>
-        </div>
-      `;
-    });
-  });
-
-  function showFieldError(input, errorText) {
-    if (!input) return;
-    input.classList.add('has-error');
-    const errDiv = document.createElement('div');
-    errDiv.className = 'form-error-msg';
-    errDiv.style.color = '#B91C1C';
-    errDiv.style.fontSize = '0.78rem';
-    errDiv.style.marginTop = '4px';
-    errDiv.textContent = errorText;
-    input.parentNode.appendChild(errDiv);
-  }
-
-  function escapeHtml(str) {
-    return str.replace(/[&<>'"]/g, 
-      tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-    );
-  }
 
   // Gallery Category Filtering
   const filterBtns = document.querySelectorAll('.gallery-filter-btn');
