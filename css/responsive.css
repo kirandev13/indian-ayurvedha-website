@@ -861,4 +861,16 @@ html, body {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
+
+  .inauguration-archive-section {
+    padding: 60px 0 70px !important;
+  }
+
+  .inauguration-card-body {
+    padding: 16px 14px 18px !important;
+  }
+
+  .inauguration-card-title {
+    font-size: 1.05rem !important;
+  }
 }

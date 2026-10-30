@@ -203,4 +203,26 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     animatedElements.forEach(el => el.classList.add('is-visible'));
   }
+
+  // 2012 Inauguration Archive Toggle Handler
+  const toggleInaugurationBtn = document.getElementById('toggleInaugurationArchiveBtn');
+  const extendedInauguration = document.getElementById('inaugurationExtendedArchive');
+  const inaugurationBtnText = document.getElementById('inaugurationBtnText');
+  const inaugurationBtnIcon = document.getElementById('inaugurationBtnIcon');
+
+  if (toggleInaugurationBtn && extendedInauguration) {
+    toggleInaugurationBtn.addEventListener('click', () => {
+      const isVisible = extendedInauguration.style.display !== 'none';
+      if (isVisible) {
+        extendedInauguration.style.display = 'none';
+        if (inaugurationBtnText) inaugurationBtnText.textContent = 'View Complete Ceremony Archive (8 Photos)';
+        if (inaugurationBtnIcon) inaugurationBtnIcon.style.transform = 'rotate(0deg)';
+      } else {
+        extendedInauguration.style.display = 'block';
+        if (inaugurationBtnText) inaugurationBtnText.textContent = 'Collapse Extended Archive';
+        if (inaugurationBtnIcon) inaugurationBtnIcon.style.transform = 'rotate(180deg)';
+        extendedInauguration.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
 });
