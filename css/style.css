@@ -2783,24 +2783,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.06);
 }
 
-.inauguration-step-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(10, 29, 19, 0.92);
-  border: 1px solid var(--gold-primary);
-  color: var(--gold-light);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
 .inauguration-card-body {
   padding: 20px 18px 22px;
   display: flex;
@@ -2808,13 +2790,35 @@ h1, h2, h3, h4, h5, h6 {
   flex-grow: 1;
 }
 
-.inauguration-card-milestone {
+.inauguration-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.inauguration-step-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--gold-light);
   font-weight: 700;
-  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.32);
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.inauguration-step-num {
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(197, 160, 89, 0.3);
+  padding: 1px 6px;
+  border-radius: 999px;
 }
 
 .inauguration-card-title {
