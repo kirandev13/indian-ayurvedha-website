@@ -101,17 +101,16 @@ html, body {
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
+}
 
+/* Mobile Devices (< 768px): Single WhatsApp control & Safe-area padding */
+@media (max-width: 767.98px) {
   .floating-whatsapp {
-    display: none !important; /* Hide floating circular button on mobile/tablets where sticky bottom action bar is active */
-  }
-
-  .mobile-bottom-bar {
-    display: block;
+    display: none !important; /* Single WhatsApp rule: on mobile, only smart action bar displays WhatsApp */
   }
 
   body {
-    padding-bottom: 74px; /* Space for sticky bottom bar */
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
   }
 }
 
@@ -139,52 +138,6 @@ html, body {
     display: none; /* Keep mobile viewport clean */
   }
 
-  /* Full-Width Header & Navigation on Mobile */
-  .site-header,
-  .header-wrapper {
-    top: 0 !important;
-    padding: 0 !important;
-    border-bottom: 2px solid rgba(197, 160, 89, 0.4) !important;
-  }
-
-  .nav-container,
-  .nav-pill {
-    padding: 8px 14px !important;
-    gap: 10px !important;
-  }
-
-  /* Prominently visible Ashan logo on mobile */
-  .nav-logo-img {
-    width: 54px !important;
-    height: 54px !important;
-    border-width: 2px !important;
-  }
-
-  .nav-brand-name {
-    font-size: 1.1rem !important;
-    line-height: 1.15 !important;
-  }
-
-  .nav-brand-sub {
-    font-size: 0.62rem !important;
-    letter-spacing: 0.1em !important;
-  }
-
-  .nav-brand-mobile-since {
-    font-size: 9px !important;
-    letter-spacing: 0.16em !important;
-  }
-
-  .nav-actions .btn {
-    display: none; /* Handled by mobile bottom action bar */
-  }
-
-  .mobile-menu-btn {
-    width: 42px !important;
-    height: 42px !important;
-    display: flex !important;
-  }
-
   /* Buttons on Mobile */
   .btn {
     white-space: normal !important;
@@ -194,113 +147,6 @@ html, body {
     padding: 13px 20px;
     font-size: 0.9rem;
     line-height: 1.35;
-  }
-
-  /* Hero Section */
-  .hero-section {
-    padding: 50px 0 50px !important;
-    min-height: auto !important;
-    margin-top: 0 !important;
-  }
-
-  .hero-badge {
-    font-size: 0.72rem !important;
-    padding: 6px 14px !important;
-    white-space: normal !important;
-    text-align: center !important;
-    letter-spacing: 0.05em !important;
-    margin-bottom: 16px !important;
-    line-height: 1.4 !important;
-    display: inline-block !important;
-  }
-
-  .hero-title {
-    font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important;
-    line-height: 1.22 !important;
-    letter-spacing: -0.01em !important;
-    margin-bottom: 16px !important;
-  }
-
-  .hero-desc {
-    font-size: 0.9375rem !important;
-    line-height: 1.62 !important;
-    margin-bottom: 24px !important;
-    color: rgba(250, 247, 242, 0.92) !important;
-  }
-
-  .hero-ctas {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
-    margin-bottom: 24px !important;
-  }
-
-  .hero-ctas .btn {
-    width: 100% !important;
-    padding: 14px 20px !important;
-  }
-
-  /* Condition Quick-Pills on Mobile */
-  .hero-condition-chips {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    margin-bottom: 22px !important;
-    width: 100% !important;
-  }
-
-  .condition-chip-label {
-    font-size: 0.72rem !important;
-    letter-spacing: 0.04em !important;
-  }
-
-  .condition-chips-list {
-    display: flex !important;
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-  }
-
-  .condition-chip {
-    font-size: 0.78rem !important;
-    padding: 6px 12px !important;
-  }
-
-  /* 3-Stat Proof Strip on Mobile */
-  .hero-stat-strip {
-    display: flex !important;
-    width: 100% !important;
-    justify-content: space-between !important;
-    padding: 12px 14px !important;
-    gap: 8px !important;
-    border-radius: 12px !important;
-    margin-top: 4px !important;
-  }
-
-  .hero-stat-num {
-    font-size: 1.05rem !important;
-  }
-
-  .hero-stat-sub {
-    font-size: 0.62rem !important;
-    letter-spacing: 0.02em !important;
-  }
-
-  .hero-stat-divider {
-    height: 26px !important;
-  }
-
-  .hero-trust-indicators {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
-    padding-top: 18px !important;
-    width: 100% !important;
-  }
-
-  .trust-item {
-    font-size: 0.8125rem !important;
-    line-height: 1.4 !important;
   }
 
   /* Section Typography */
@@ -322,57 +168,7 @@ html, body {
     margin-bottom: 28px !important;
   }
 
-  /* Trust Bar / Credibility Strip on Mobile: Sleek 2x2 Micro-Grid */
-  .trust-strip {
-    margin-top: -24px !important;
-    padding: 0 12px !important;
-  }
 
-  .trust-bar-container {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-    padding: 14px 12px !important;
-    border-radius: 14px !important;
-  }
-
-  .trust-item-box {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 12px 8px !important;
-    border-right: none !important;
-    border-bottom: none !important;
-    background: #FAF7F2 !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(197, 160, 89, 0.22) !important;
-  }
-
-  .trust-item-box:last-child {
-    padding-bottom: 12px !important;
-  }
-
-  .trust-item-icon {
-    width: 36px !important;
-    height: 36px !important;
-    border-radius: 10px !important;
-    margin-bottom: 6px !important;
-  }
-
-  .trust-item-icon svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .trust-item-title {
-    font-size: 0.78rem !important;
-    line-height: 1.25 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-  }
-
-  .trust-item-desc {
-    display: none !important; /* Eliminate long paragraph clutter on mobile */
-  }
 
   .trust-item-title {
     font-size: 0.9rem !important;
@@ -807,20 +603,7 @@ html, body {
     gap: 8px !important;
   }
 
-  /* Mobile Bottom Action Bar */
-  .mobile-bottom-bar {
-    padding: 8px 12px !important;
-  }
 
-  .mobile-bottom-grid {
-    grid-template-columns: 1fr 1fr 1.25fr !important;
-    gap: 8px !important;
-  }
-
-  .mobile-bottom-btn {
-    padding: 8px 10px !important;
-    font-size: 0.75rem !important;
-  }
 
   /* Subpage Grids & Hero Overrides */
   .hero-bg-img {

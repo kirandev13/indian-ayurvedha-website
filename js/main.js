@@ -4,12 +4,15 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Pill Navigation Scroll Effect
+  // 1. Navigation Header Scroll Effect (> 16px soft shadow)
+  const siteHeader = document.querySelector('.site-header');
   const navPill = document.querySelector('.nav-pill');
   const handleScroll = () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 16) {
+      siteHeader?.classList.add('scrolled');
       navPill?.classList.add('scrolled');
     } else {
+      siteHeader?.classList.remove('scrolled');
       navPill?.classList.remove('scrolled');
     }
   };
@@ -188,8 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = currentYear;
   });
 
-  // Fade/Slide In on Scroll Animation for Blocks
-  const animatedElements = document.querySelectorAll('.fade-in-scroll');
+  // Fade/Slide In on Scroll Animation for Blocks & Proof Strips
+  const animatedElements = document.querySelectorAll('.fade-in-scroll, .scroll-reveal');
   if ('IntersectionObserver' in window && animatedElements.length > 0) {
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -202,6 +205,44 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => scrollObserver.observe(el));
   } else {
     animatedElements.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Mobile Smart Action Bar (<768px only) - Reveal after Hero primary button scrolls out of view
+  const mobileActionBar = document.getElementById('mobileActionBar') || document.querySelector('.mobile-action-bar') || document.querySelector('.mobile-bottom-bar');
+  const heroPrimaryBtn = document.querySelector('.hero-primary-btn');
+
+  if (mobileActionBar) {
+    if (heroPrimaryBtn && 'IntersectionObserver' in window) {
+      const heroBtnObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // If the button is in view, hide bottom action bar
+          if (entry.isIntersecting) {
+            mobileActionBar.classList.remove('is-active');
+          } else {
+            // Button is out of view: if scrolled past it (top < 0), reveal action bar
+            if (entry.boundingClientRect.top < 0 && window.innerWidth < 768) {
+              mobileActionBar.classList.add('is-active');
+            } else {
+              mobileActionBar.classList.remove('is-active');
+            }
+          }
+        });
+      }, { threshold: 0 });
+      heroBtnObserver.observe(heroPrimaryBtn);
+    } else {
+      // Subpage fallback: reveal after scrolling past header (120px) on mobile
+      const handleSubpageBarScroll = () => {
+        if (window.innerWidth < 768) {
+          if (window.scrollY > 120) {
+            mobileActionBar.classList.add('is-active');
+          } else {
+            mobileActionBar.classList.remove('is-active');
+          }
+        }
+      };
+      window.addEventListener('scroll', handleSubpageBarScroll, { passive: true });
+      handleSubpageBarScroll();
+    }
   }
 
   // 2012 Inauguration Archive Toggle Handler
