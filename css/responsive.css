@@ -619,7 +619,11 @@ html, body {
   }
 
   .gallery-card-item {
-    height: 240px !important;
+    height: 260px !important;
+  }
+
+  .gallery-card-item img {
+    object-position: center top !important;
   }
 
   .gallery-card-overlay {

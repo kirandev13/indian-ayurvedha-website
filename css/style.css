@@ -61,7 +61,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 64px;
+  scroll-padding-top: 78px;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
@@ -70,15 +70,15 @@ html {
 }
 
 [id] {
-  scroll-margin-top: 64px;
+  scroll-margin-top: 78px;
 }
 
 @media (min-width: 1024px) {
   html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 90px;
   }
   [id] {
-    scroll-margin-top: 72px;
+    scroll-margin-top: 90px;
   }
 }
 
@@ -394,28 +394,28 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   z-index: 1000;
   width: 100%;
-  height: 64px;
+  height: 78px;
   padding: 0;
   margin: 0;
   pointer-events: auto;
-  background: rgba(10, 29, 19, 0.72);
+  background: rgba(10, 29, 19, 0.76);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
-  border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.22);
   box-shadow: none;
   transition: background var(--transition-normal), box-shadow var(--transition-normal), height var(--transition-normal);
 }
 
 .site-header.scrolled,
 .header-wrapper.scrolled {
-  background: rgba(10, 29, 19, 0.88);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background: rgba(10, 29, 19, 0.92);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 @media (min-width: 1024px) {
   .site-header,
   .header-wrapper {
-    height: 72px;
+    height: 90px;
   }
 }
 
@@ -463,29 +463,36 @@ h1, h2, h3, h4, h5, h6 {
 .nav-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
   text-decoration: none;
 }
 
-/* Luxury Emblem Logo */
+@media (min-width: 1024px) {
+  .nav-brand {
+    gap: 16px;
+  }
+}
+
+/* Luxury Emblem Logo (Enlarged per client specification) */
 .nav-logo-img {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   object-fit: cover;
   border-radius: 50%;
-  border: 1.5px solid var(--gold-primary);
-  background: radial-gradient(circle, rgba(197, 160, 89, 0.25) 0%, rgba(10, 29, 19, 0.9) 100%);
-  padding: 1px;
+  border: 2px solid var(--gold-primary);
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.28) 0%, rgba(10, 29, 19, 0.95) 100%);
+  padding: 2px;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 12px rgba(197, 160, 89, 0.28);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 @media (min-width: 1024px) {
   .nav-logo-img {
-    width: 48px;
-    height: 48px;
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 16px rgba(197, 160, 89, 0.35);
   }
 }
 
@@ -502,35 +509,37 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-brand-name {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 600;
   color: #FFFFFF;
-  line-height: 1.1;
+  line-height: 1.12;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   white-space: nowrap;
 }
 
 @media (min-width: 1024px) {
   .nav-brand-name {
-    font-size: 20px;
+    font-size: 26px;
+    letter-spacing: 0.06em;
   }
 }
 
 .nav-brand-sub {
-  font-size: 9.5px;
+  font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-light);
   font-weight: 600;
-  line-height: 1.2;
-  margin-top: 2px;
+  line-height: 1.25;
+  margin-top: 3px;
   white-space: nowrap;
 }
 
 @media (min-width: 1024px) {
   .nav-brand-sub {
-    font-size: 10.5px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
   }
 }
 
@@ -2807,6 +2816,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform var(--transition-normal);
 }
 
